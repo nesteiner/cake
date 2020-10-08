@@ -21,7 +21,8 @@
 首先你得去[宅男女神](https://www.nvshens.org/)上找到一个模特的介绍首页  
 如[这个](https://www.nvshens.org/girl/22162/)  
 然后往下拉  
-![image1](images/image1.png)
+![image1](images/image1.png)  
+
 看到那个**共299册**了吗，点进去，到[这里](https://www.nvshens.org/girl/22162/album/)，能看到所有专辑  
 接着，我们将这个页面的**url**作为`scrapy`参数的`links`，这个模特的名字作为参数的`db_name`，运行  
 
