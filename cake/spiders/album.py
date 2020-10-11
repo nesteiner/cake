@@ -16,10 +16,15 @@ class Spider(scrapy.Spider):
         for url, name in zip(album_urls, names):
             yield scrapy.Request(url = url, meta = {'start_link': url, 'name': name, 'album': {'name': name}}, callback = self.take_album)
 
-        next_page_urls = response.css('div.pagesYY > div > a::attr(href)').extract()
-        if len(next_page_urls) != 0:
-            next_url = response.urljoin(next_page_urls[1])
+        # for negativation of albums
+        indexs = map(lambda x: x == '下一页', response.css('div.pagesYY a::text').extract())
+
+        if any(indexs):
+            next_urls = response.css('div.pagesYY a::attr(href)').extract()
+            next_url = response.urljoin(next_urls[-1])
             yield scrapy.Request(url = next_url, callback = self.parse)
+
+
 
     def take_album(self, response):
         # Description return an album

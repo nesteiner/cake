@@ -30,7 +30,7 @@
 然后，如果不出意外的话，网络没问题的话，这个模特的所有图片地址都会存到`mongodb`中的`db_name`数据库内  
 
 
-### 示例
+### 示例 爬取地址到数据库
 让我来做个示范好了
 `scrapy crawl album -a db_name="cake" -a links="https://www.nvshens.org/girl/21339/album/"`
 数据库查看  
@@ -39,6 +39,8 @@
 
 ![image4](images/image4.png)
 
+### 示例 下载这个模特所有专辑的图片到指定目录
+`python3 downloader.py db_name directory-to-storage`
 
 ## Changelog - 更新日志（一个简短的历史记录（更改，替换或者其他）。）
 

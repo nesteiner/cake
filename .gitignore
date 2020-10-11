@@ -1,4 +1,6 @@
 *.py~
 test/
-__pycache__/
+__pycache__
+cake/spider/__pycache__/
 storage/
+test_count.py
