@@ -6,21 +6,7 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-import random
-user_agent_list = [
-    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 "
-    "(KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1",
-    "Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 "
-    "(KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11",
-    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 "
-    "(KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6",
-    "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.6 "
-    "(KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6",
-    "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 "
-    "(KHTML, like Gecko) Chrome/19.77.34.5 Safari/537.1",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 "
-    "(KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5"
-]
+
 
 class CakeSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -92,9 +78,6 @@ class CakeDownloaderMiddleware(object):
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-
-        ua = random.choice(user_agent_list)
-        request.headers['User-Agent'] = ua
         return None
 
     def process_response(self, request, response, spider):
@@ -120,19 +103,19 @@ class CakeDownloaderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-# from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
-# import random
-# class CakeUserAgentMiddleware(UserAgentMiddleware):
+from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
+import random
+class CakeUserAgentMiddleware(UserAgentMiddleware):
 
-#     def __init__(self, user_agent):
-#         self.user_agent = user_agent
+    def __init__(self, user_agent):
+        self.user_agent = user_agent
         
-#     @classmethod
-#     def from_crawler(cls, crawler):
-#         return cls(user_agent = crawler.settings.get('USER_AGENT_LISTS'))
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(user_agent = crawler.settings.get('USER_AGENT_LISTS'))
                    
 
-#     def process_request(self, request, spider):
-#         ua = random.choice(self.user_agent)
-#         request.headers.setdefault('User-Agent', ua)
+    def process_request(self, request, spider):
+        ua = random.choice(self.user_agent)
+        request.headers.setdefault('User-Agent', ua)
 

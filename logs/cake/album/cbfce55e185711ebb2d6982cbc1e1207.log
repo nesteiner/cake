@@ -1,0 +1,64 @@
+2020-10-27 21:24:55 [scrapy.utils.log] INFO: Scrapy 1.8.0 started (bot: cake)
+2020-10-27 21:24:55 [scrapy.utils.log] INFO: Versions: lxml 4.4.2.0, libxml2 2.9.9, cssselect 1.1.0, parsel 1.5.2, w3lib 1.21.0, Twisted 19.10.0, Python 3.6.9 (default, Jul 17 2020, 12:50:27) - [GCC 8.4.0], pyOpenSSL 19.1.0 (OpenSSL 1.1.1d  10 Sep 2019), cryptography 2.8, Platform Linux-5.0.0-32-generic-x86_64-with-Ubuntu-18.04-bionic
+2020-10-27 21:24:55 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'cake', 'LOG_FILE': 'logs/cake/album/cbfce55e185711ebb2d6982cbc1e1207.log', 'NEWSPIDER_MODULE': 'cake.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['cake.spiders']}
+2020-10-27 21:24:55 [scrapy.extensions.telnet] INFO: Telnet Password: 7561a6105960ca6c
+2020-10-27 21:24:55 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2020-10-27 21:24:55 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'cake.middlewares.CakeUserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-10-27 21:24:55 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-10-27 21:24:55 [scrapy.middleware] INFO: Enabled item pipelines:
+['cake.pipelines.CakePipeline']
+2020-10-27 21:24:55 [scrapy.core.engine] INFO: Spider opened
+2020-10-27 21:24:55 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-10-27 21:24:55 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-10-27 21:24:56 [scrapy.core.engine] DEBUG: Crawled (400) <GET https://www.nvshens.org/robots.txt> (referer: http://ris.szpl.gov.cn/bol/projectdetail.aspx)
+2020-10-27 21:24:56 [protego] DEBUG: Rule at line 1 without any user agent to enforce it on.
+2020-10-27 21:24:56 [scrapy.core.engine] DEBUG: Crawled (400) <GET https://www.nvshens.org/girl/20468/album/> (referer: http://ris.szpl.gov.cn/bol/projectdetail.aspx)
+2020-10-27 21:24:56 [scrapy.spidermiddlewares.httperror] INFO: Ignoring response <400 https://www.nvshens.org/girl/20468/album/>: HTTP status code is not handled or not allowed
+2020-10-27 21:24:56 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-10-27 21:24:56 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 1069,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 946,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/400': 2,
+ 'elapsed_time_seconds': 1.310306,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 10, 27, 13, 24, 56, 793308),
+ 'httperror/response_ignored_count': 1,
+ 'httperror/response_ignored_status_count/400': 1,
+ 'log_count/DEBUG': 3,
+ 'log_count/INFO': 11,
+ 'memusage/max': 60403712,
+ 'memusage/startup': 60403712,
+ 'response_received_count': 2,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/400': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2020, 10, 27, 13, 24, 55, 483002)}
+2020-10-27 21:24:56 [scrapy.core.engine] INFO: Spider closed (finished)

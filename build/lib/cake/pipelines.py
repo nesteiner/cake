@@ -24,20 +24,3 @@ class CakePipeline(object):
         #     for filename, url in item.items():
         #         content = filename + ': ' + url + '\n'
         #         f.write(content)
-
-
-class AsyncPipeline(object):
-    def __init__(self):
-        self.path = '/home/steiner/workspace/nc/pictureinfo'
-        self.fp = open(self.path, 'w')
-        self.storage = client['async']['storage']
-    def __del__(self):
-        self.fp.close()
-        
-    def process_item(self, item, spider):
-        # write items in a file
-        urls = item['urls']
-        names = item['names']
-        for name, url in zip(names, urls):
-            contents = {'filename': name, 'url': url}
-            self.storage.insert_one(contents)
