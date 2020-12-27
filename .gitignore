@@ -4,3 +4,9 @@ __pycache__
 cake/spider/__pycache__/
 storage/
 test_count.py
+build/
+dbs/
+eggs/
+logs/
+log
+
