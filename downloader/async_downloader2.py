@@ -26,7 +26,7 @@ async def download(directory, collection):
         filenames = map(lambda record: os.path.join(directory, record['filename']), collection.find())
 
         coros = map(lambda url, path: fetch(session, url, path), urls, filenames)
-        await asyncio.wait(coros)
+        await asyncio.wait(list(coros))
 
 # Description for 127.75, 87.83
 async def main():
@@ -48,13 +48,13 @@ async def main():
 
 
 # Description for 36.61
-# async def main():
-#     directory = '/home/steiner/workspace/nc/images/'
-#     if not os.path.exists(directory):
-#         os.makedirs(directory)
+async def main():
+    directory = '/home/steiner/workspace/nc/images/'
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
-#     collection = client['async']['storage']
-#     await download(directory, collection)
+    collection = client['async']['storage']
+    await download(directory, collection)
     
 
 
@@ -63,22 +63,3 @@ asyncio.run(main())
 end_time = time.time()
 print('Time: ', end_time - start_time)
 
-# PROBLEM await task or await corotine
-# PROBLEM await task which await corotine
-
-import random
-async def g(x):
-    print(x)
-    
-async def f():
-    coros = [g(x) for x in range(1,3)]
-    await asyncio.wait(coros)
-
-async def main():
-    task1 = asyncio.create_task(f())
-    task2 = asyncio.create_task(f())
-
-    await task1
-    await task2
-    
-asyncio.run(main())

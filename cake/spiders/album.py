@@ -25,7 +25,6 @@ class Spider(scrapy.Spider):
             yield scrapy.Request(url = next_url, callback = self.parse)
 
 
-
     def take_album(self, response):
         # Description return an album
         # single page

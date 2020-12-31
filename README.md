@@ -14,19 +14,23 @@ ITEM_PIPELINES = {
 }
 ```
 
-### 使用方法
-#### 1. 爬取链接
+## 使用方法
+### 1. 爬取链接
 `scrapy crawl album -a db_name="the db where you use " -a links="the start of album page"`
 **注意**
 你只是存储了这些图片的链接，而不是文件 
 另外在下载这些图片时很容易被网站303，现在还没解决
 
-#### 2. 下载图片
+### 2. 下载图片
 TODO 
-### 代码结构
+## 代码结构
 爬虫模块 
 `cake`
 下载模块
 `downloader`
-### 待办事项
-- [ ] `downloader`
+___
+## Project
+- [x] 异步下载器 `downloader/asyncdownloader.py`
+网站有点问题，现在用浏览器单独看一个图片都不行了
+
+- [ ] 调试中间件
